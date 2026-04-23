@@ -1,0 +1,5 @@
+name = "shikaku-minder"
+compatibility_date = "2024-09-23"
+
+# output: 'export' の静的ファイルを直接配信する
+pages_build_output_dir = "out"
