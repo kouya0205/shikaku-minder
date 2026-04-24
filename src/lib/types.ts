@@ -17,8 +17,17 @@ export type AffiliateItem = {
   kind: "book" | "course" | "service";
 };
 
+export type AffiliateBanner = {
+  linkUrl: string;
+  imgSrc: string;
+  trackingSrc: string;
+  width: number;
+  height: number;
+};
+
 export type AffiliateConfig = {
   items: AffiliateItem[];
+  banner?: AffiliateBanner;
 };
 
 export type Exam = {

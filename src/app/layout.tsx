@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +14,52 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://shikaku-minder.pages.dev";
+
 export const metadata: Metadata = {
-  title: "シカクマインダー | 資格スケジュール管理",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "シカクマインダー | 資格試験の日程・申込期間を一元管理",
+    template: "%s | シカクマインダー",
+  },
   description:
-    "国内トップ30の資格試験の申込期間・試験日を一元管理し、申込忘れをゼロにするサービス。",
+    "宅建・行政書士・TOEIC・FPなど国内主要30資格の試験日・申込期間をまとめてチェック。締切前にカレンダー登録・通知で申込忘れゼロへ。",
+  keywords: [
+    "資格", "資格試験", "申込期間", "試験日", "スケジュール管理", "リマインド",
+    "宅建", "行政書士", "TOEIC", "FP", "簿記", "基本情報技術者", "社労士",
+  ],
+  authors: [{ name: "シカクマインダー", url: SITE_URL }],
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: SITE_URL,
+    siteName: "シカクマインダー",
+    title: "シカクマインダー | 資格試験の日程・申込期間を一元管理",
+    description:
+      "宅建・行政書士・TOEIC・FPなど国内主要30資格の試験日・申込期間をまとめてチェック。申込忘れゼロへ。",
+    images: [{ url: "/img/shikaku-minder-ogp.png", width: 2563, height: 1354, alt: "シカクマインダー" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "シカクマインダー | 資格試験の日程・申込期間を一元管理",
+    description:
+      "宅建・行政書士・TOEIC・FPなど国内主要30資格の試験日・申込期間をまとめてチェック。",
+    images: ["/img/shikaku-minder-ogp.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "シカクマインダー",
+  url: SITE_URL,
+  description: "国内主要30資格の試験日・申込期間を一元管理するサービス",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/?q={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default function RootLayout({
@@ -29,19 +72,20 @@ export default function RootLayout({
       lang="ja"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--color-background)] text-[var(--color-foreground)]">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-(--color-background) text-(--color-foreground)">
         <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-white/80 backdrop-blur">
           <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
             <Link
               href="/"
               className="flex items-center gap-2 font-semibold tracking-tight"
             >
-              <span
-                aria-hidden
-                className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[var(--color-brand)] text-[var(--color-brand-foreground)] text-sm font-bold"
-              >
-                資
-              </span>
+              <Image src="/img/shikaku-minder.png" alt="シカクマインダー" width={32} height={32} />
               <span>シカクマインダー</span>
             </Link>
             <nav className="flex items-center gap-1 text-sm">

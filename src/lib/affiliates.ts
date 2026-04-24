@@ -43,11 +43,25 @@ export const affiliateConfigs: Record<string, AffiliateConfig> = {
       { title: "みんなが欲しかった！宅建士の教科書", vendor: "TAC出版", url: "#", kind: "book" },
       { title: "フォーサイト 宅建士講座", vendor: "フォーサイト", url: "#", kind: "course" },
     ],
+    banner: {
+      linkUrl: "https://px.a8.net/svt/ejp?a8mat=4B1SPS+FM17UA+373C+614CX",
+      imgSrc: "https://www27.a8.net/svt/bgt?aid=260424352944&wid=001&eno=01&mid=s00000014916001013000&mc=1",
+      trackingSrc: "https://www15.a8.net/0.gif?a8mat=4B1SPS+FM17UA+373C+614CX",
+      width: 468,
+      height: 60,
+    },
   },
   gyosei: {
     items: [
       { title: "合格革命 行政書士 基本テキスト", vendor: "早稲田経営出版", url: "#", kind: "book" },
     ],
+    banner: {
+      linkUrl: "https://px.a8.net/svt/ejp?a8mat=4B1SPS+FM17UA+373C+6CHB5",
+      imgSrc: "https://www24.a8.net/svt/bgt?aid=260424352944&wid=001&eno=01&mid=s00000014916001066000&mc=1",
+      trackingSrc: "https://www11.a8.net/0.gif?a8mat=4B1SPS+FM17UA+373C+6CHB5",
+      width: 300,
+      height: 250,
+    },
   },
   sharoshi: {
     items: [
