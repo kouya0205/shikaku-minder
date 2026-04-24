@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static";
 import { fetchAllExams } from "@/lib/notion";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://shikaku-minder.pages.dev";
