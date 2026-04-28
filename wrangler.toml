@@ -5,9 +5,9 @@ compatibility_date = "2024-09-23"
 directory = "./out"
 
 [[routes]]
-pattern = "shikaku-minder.com/*"
+pattern = "shikaku-minder.com"
 custom_domain = true
 
 [[routes]]
-pattern = "www.shikaku-minder.com/*"
+pattern = "www.shikaku-minder.com"
 custom_domain = true
