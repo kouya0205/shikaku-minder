@@ -47,6 +47,9 @@ export const metadata: Metadata = {
       "宅建・行政書士・TOEIC・FPなど国内主要30資格の試験日・申込期間をまとめてチェック。",
     images: ["/img/shikaku-minder-ogp.png"],
   },
+  other: {
+    "google-adsense-account": "ca-pub-6845889211204332",
+  },
 };
 
 const jsonLd = {
